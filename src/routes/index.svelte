@@ -398,15 +398,21 @@
 
 {#each Object.entries(commands) as [name, commands]}
 	<div class="py-4 grid grid-cols-1 gap-2" id={name}>
-		<div class="text-purple-700 text-2xl p-2 bg-zinc-300 rounded-lg border-2">{name} Commands</div>
+		<div
+			class="text-purple-700 dark:text-emerald-500 text-2xl p-2 bg-zinc-300 dark:bg-slate-900 rounded-lg border-2"
+		>
+			{name} Commands
+		</div>
 		<div class="grid grid-cols-1 gap-4">
 			{#each commands as command}
-				<div class="bg-white text-gray-900 text-xl p-4 rounded-lg border-2">
+				<div
+					class="bg-white text-gray-900 dark:bg-slate-800 dark:text-zinc-200 text-xl p-4 rounded-lg border-2"
+				>
 					<p class="" id={command.s}>
 						{command.s}
 					</p>
 
-					<p class="text-gray-800 text-lg">
+					<p class="text-gray-800 dark:text-zinc-300 text-lg">
 						{command.d}
 					</p>
 				</div>
