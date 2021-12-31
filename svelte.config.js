@@ -6,17 +6,22 @@ import { minifyHtml } from 'vite-plugin-html';
 const handleError = ({ status, path, referrer, referenceType }) => {
 	console.warn(`${status} ${path}${referrer ? ` (${referenceType} from ${referrer})` : ''}`);
 };
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: preprocess({
 		postcss: true
 	}),
+	onwarn: (warning, handler) => {
+		const { code, frame } = warning;
+		if (code === 'css-unused-selector') return;
+
+		handler(warning);
+	},
 	kit: {
 		adapter: adapter(),
 
 		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte',
+		target: '#main',
 		prerender: {
 			onError: handleError
 		},

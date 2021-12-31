@@ -386,34 +386,36 @@
 	</p>
 	<p class="w-full">
 		Discord-suggestions created using aethor will have buttens attached to them allowing users to
-		vote on <a href="#suggestions" class="text-blue-900 font-bold">suggestions</a>
+		vote on<a href="#suggestions" class="text-blue-900 font-bold"> suggestions</a>
 	</p>
 </div>
-
+<div class="py-2" />
 <img
 	alt="aethor suggestion"
-	class="border-2 border-cyan-500  rounded-lg"
+	class="border-2 border-cyan-500 rounded-lg"
 	src="https://ascella.wtf/v2/ascella/view/jwI9ubO"
+/>
+<div class="py-2" />
+<img
+	alt="aethor delete"
+	class="border-2 border-cyan-500 rounded-lg"
+	src="https://ascella.wtf/v2/ascella/view/ruyLiSK"
 />
 
 {#each Object.entries(commands) as [name, commands]}
-	<div class="py-4 grid grid-cols-1 gap-2" id={name}>
-		<div
-			class="text-purple-700 dark:text-emerald-500 text-2xl p-2 bg-zinc-300 dark:bg-slate-900 rounded-lg border-2"
-		>
-			{name} Commands
+	<div class="group-ac" id={name}>
+		<div class="group-a">
+			{name[0].toUpperCase() + name.slice(1)} Commands
 		</div>
-		<div class="grid grid-cols-1 gap-4">
+		<div class="grid-a">
 			{#each commands as command}
-				<div
-					class="bg-white text-gray-900 dark:bg-slate-800 dark:text-zinc-200 text-xl p-4 rounded-lg border-2"
-				>
-					<p class="" id={command.s}>
+				<div class="grid-item-a">
+					<p class="text-xl" id={command.n.join('-')}>
 						{command.s}
 					</p>
 
-					<p class="text-gray-800 dark:text-zinc-300 text-lg">
-						{command.d}
+					<p class="command-desc">
+						{command.d || ''}
 					</p>
 				</div>
 			{/each}
@@ -425,4 +427,20 @@
 	@tailwind base;
 	@tailwind components;
 	@tailwind utilities;
+
+	.group-ac {
+		@apply py-4 grid grid-cols-1 gap-2;
+	}
+	.command-desc {
+		@apply text-gray-800 dark:text-zinc-300 text-lg;
+	}
+	.grid-a {
+		@apply grid grid-cols-1 gap-4;
+	}
+	.group-a {
+		@apply text-purple-700 dark:text-emerald-500 text-2xl p-2 bg-zinc-300 dark:bg-slate-900 rounded-lg border-2;
+	}
+	.grid-item-a {
+		@apply bg-white text-gray-900 dark:bg-slate-800 dark:text-zinc-200 p-4 rounded-lg border-2;
+	}
 </style>

@@ -1,5 +1,5 @@
 const config = {
-	darkMode: 'class',
+	darkMode: 'media',
 	mode: 'jit',
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
