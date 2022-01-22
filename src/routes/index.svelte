@@ -1,4 +1,5 @@
 <script context="module" lang="ts">
+	import css from '../index.module.css';
 	export const ssr = true;
 	export const prerender = true;
 	export const hydrate = false;
@@ -378,43 +379,35 @@
 	};
 </script>
 
-<div class="border-2 border-cyan-300 rounded-lg w-full py-2">
-	<h1 class="text-3xl text-cyan-500 w-full">Aethor</h1>
+<div class={css.case}>
+	<h1 class={css.aetext}>Aethor</h1>
 
-	<p class="w-full">
-		Aethor is the best <a href="#suggestions" class="text-blue-900 font-bold">suggestions</a> bot
+	<p class={css.wfull}>
+		Aethor is the best <a href="#suggestions" class={css.link}>suggestions</a> bot
 	</p>
-	<p class="w-full">
+	<p class={css.wfull}>
 		Discord-suggestions created using aethor will have buttens attached to them allowing users to
-		vote on<a href="#suggestions" class="text-blue-900 font-bold"> suggestions</a>
+		vote on<a href="#suggestions" class={css.link}> suggestions</a>
 	</p>
 </div>
-<div class="py-2" />
-<img
-	alt="aethor suggestion"
-	class="border-2 border-cyan-500 rounded-lg"
-	src="https://ascella.wtf/v2/ascella/view/jwI9ubO"
-/>
-<div class="py-2" />
-<img
-	alt="aethor delete"
-	class="border-2 border-cyan-500 rounded-lg"
-	src="https://ascella.wtf/v2/ascella/view/ruyLiSK"
-/>
+<div class={css.py2} />
+<img alt="aethor suggestion" class={css.image} src="https://ascella.wtf/v2/ascella/view/jwI9ubO" />
+<div class={css.py2} />
+<img alt="aethor delete" class={css.image} src="https://ascella.wtf/v2/ascella/view/ruyLiSK" />
 
 {#each Object.entries(commands) as [name, commands]}
-	<div class="group-ac" id={name}>
-		<div class="group-a">
+	<div class={css.groupac} id={name}>
+		<div class={css.groupa}>
 			{name[0].toUpperCase() + name.slice(1)} Commands
 		</div>
-		<div class="grid-a">
+		<div class={css.grida}>
 			{#each commands as command}
-				<div class="grid-item-a">
-					<p class="text-xl" id={command.n.join('-')}>
+				<div class={css.griditema}>
+					<p class={css.xl} id={command.n.join('-')}>
 						{command.s}
 					</p>
 
-					<p class="command-desc">
+					<p class={css.commanddesc}>
 						{command.d || ''}
 					</p>
 				</div>
@@ -424,23 +417,4 @@
 {/each}
 
 <style lang="postcss">
-	@tailwind base;
-	@tailwind components;
-	@tailwind utilities;
-
-	.group-ac {
-		@apply py-4 grid grid-cols-1 gap-2;
-	}
-	.command-desc {
-		@apply text-gray-800 dark:text-zinc-300 text-lg;
-	}
-	.grid-a {
-		@apply grid grid-cols-1 gap-4;
-	}
-	.group-a {
-		@apply text-purple-700 dark:text-emerald-500 text-2xl p-2 bg-zinc-300 dark:bg-slate-900 rounded-lg border-2;
-	}
-	.grid-item-a {
-		@apply bg-white text-gray-900 dark:bg-slate-800 dark:text-zinc-200 p-4 rounded-lg border-2;
-	}
 </style>

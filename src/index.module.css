@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.wfull {
+	@apply w-full;
+}
+.case {
+	@apply border-2 border-cyan-300 rounded-lg w-full py-2;
+}
+.aetxt {
+	@apply text-3xl text-cyan-500 w-full;
+}
+.a link {
+	@apply text-blue-900 font-bold;
+}
+
+.img img {
+	@apply border-2 border-cyan-500 rounded-lg;
+}
+
+.groupac {
+	@apply py-4 grid grid-cols-1 gap-2;
+}
+.commanddesc {
+	@apply text-gray-800 dark:text-zinc-300 text-lg;
+}
+.grida {
+	@apply grid grid-cols-1 gap-4;
+}
+.groupa {
+	@apply text-purple-700 dark:text-emerald-500 text-2xl p-2 bg-zinc-300 dark:bg-slate-900 rounded-lg border-2;
+}
+.griditema {
+	@apply bg-white text-gray-900 dark:bg-slate-800 dark:text-zinc-200 p-4 rounded-lg border-2;
+}
+
+.xl {
+	@apply text-xl;
+}
+
+.py2 {
+	@apply py-2;
+}

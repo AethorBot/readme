@@ -27,6 +27,11 @@ const config = {
 		},
 		vite: {
 			plugins: [viteSingleFile(), minifyHtml()],
+			rollupPluginVueOptions: {
+				cssModulesOptions: {
+					generateScopedName: '[hash:base64:8]'
+				}
+			},
 			build: {
 				emitCss: false,
 				minify: true,
